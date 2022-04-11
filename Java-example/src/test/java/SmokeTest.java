@@ -12,17 +12,24 @@ public class SmokeTest extends HW_3 {
     @Test
     public void smokeTest() {
         login();
-        int countLi = driver.findElements(By.cssSelector("#box-apps-menu > li")).size();
-        for (int i = 1; i <= countLi; i++) {
-            String clicElement = "#box-apps-menu > li:nth-child(" + i + ")";
-            driver.findElement(By.cssSelector(clicElement)).click();
+        List<WebElement> count1Element = driver.findElements(By.cssSelector("#box-apps-menu > li"));
+        for (int i = 0; i <= count1Element.size()-1; i++) {
+            count1Element = driver.findElements(By.cssSelector("#box-apps-menu > li"));
+            count1Element.get(i).click();
             int count = driver.findElements(By.cssSelector("h1")).size();
             if (count > 0) {
-                List<WebElement> countBotElement = driver.findElements(By.cssSelector("#box-apps-menu > li#app- [class=docs] span"));
-                int countBottElement = countBotElement.size();
-                for (int j = 1; j < countBottElement; j++) {
-                    countBotElement = driver.findElements(By.cssSelector("#box-apps-menu > li#app- [class=docs] span"));
-                    countBotElement.get(j).click();
+                List<WebElement> count2Element = driver.findElements(By.cssSelector("#box-apps-menu > li#app- [class=docs] span"));
+                for (int j = 1; j < count2Element.size(); j++) {
+                    count2Element = driver.findElements(By.cssSelector("#box-apps-menu > li#app- [class=docs] span"));
+                    count2Element.get(j).click();
+                    int count3 = driver.findElements(By.cssSelector("h1 h2")).size();
+                    if (count3 > 0) {
+                        List<WebElement> count3Element = driver.findElements(By.cssSelector("#box-apps-menu > li#app- [class=docs] span"));//(другой какой-то локатор сооветсвии с заголовком 3 уровня
+                        for (int k = 1; k < count3Element.size(); k++) {
+                            count3Element = driver.findElements(By.cssSelector("#box-apps-menu > li#app- [class=docs] span"));//(другой какой-то локатор сооветсвии с заголовком 3 уровня
+                            count3Element.get(k).click();
+                        }
+                    }
                 }
             }
         }

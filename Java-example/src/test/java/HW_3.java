@@ -16,5 +16,6 @@ public class HW_3 {
     }
     public void outSession(){
         driver.quit();
+        driver = null;
     }
 }
