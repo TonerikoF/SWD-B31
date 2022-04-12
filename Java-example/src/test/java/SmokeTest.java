@@ -1,17 +1,12 @@
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-public class SmokeTest extends HW_3 {
+public class SmokeTest extends Loggin {
     @Test
     public void smokeTest() {
-        login();
+        loginAdmin();
         List<WebElement> count1Element = driver.findElements(By.cssSelector("#box-apps-menu > li"));
         for (int i = 0; i <= count1Element.size()-1; i++) {
             count1Element = driver.findElements(By.cssSelector("#box-apps-menu > li"));
@@ -22,7 +17,7 @@ public class SmokeTest extends HW_3 {
                 for (int j = 1; j < count2Element.size(); j++) {
                     count2Element = driver.findElements(By.cssSelector("#box-apps-menu > li#app- [class=docs] span"));
                     count2Element.get(j).click();
-                    int count3 = driver.findElements(By.cssSelector("h1 h2")).size();
+                    int count3 = driver.findElements(By.cssSelector("[class=docs] h1")).size(); // тут же будет h2 скорее всего?
                     if (count3 > 0) {
                         List<WebElement> count3Element = driver.findElements(By.cssSelector("#box-apps-menu > li#app- [class=docs] span"));//(другой какой-то локатор сооветсвии с заголовком 3 уровня
                         for (int k = 1; k < count3Element.size(); k++) {

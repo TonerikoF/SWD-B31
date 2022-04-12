@@ -1,12 +1,12 @@
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+public class Loggin {
 
-public class HW_3 {
     public WebDriver driver;
-    public void login () {
+
+    public void loginAdmin () {
         driver = new ChromeDriver();
 
         driver.get("http://localhost/litecart/admin");
@@ -14,6 +14,12 @@ public class HW_3 {
         driver.findElement(By.name("password")).sendKeys("admin");
         driver.findElement(By.name("login")).click();
     }
+    public void loginSite() {
+        driver = new ChromeDriver();
+
+        driver.get("http://localhost/litecart");
+    }
+
     public void outSession(){
         driver.quit();
         driver = null;
