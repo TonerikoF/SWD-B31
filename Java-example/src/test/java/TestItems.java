@@ -14,9 +14,13 @@ public class TestItems extends Loggin {
             int countStiker = duck.findElements(By.cssSelector("div.sticker")).size();
             if (countStiker != 1) {throw new AssertionError();
             }
-            //System.out.print(duck.getText());
-        }
-        outSession();
+            /*System.out.print(duck.getText());
+        for (WebElement try2:serchItem) {
+            System.out.print(try2.getText());*/
+            
+        }outSession();
     }
+
 }
+
 
