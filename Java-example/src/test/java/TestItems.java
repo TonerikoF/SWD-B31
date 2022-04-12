@@ -14,7 +14,8 @@ public class TestItems extends Loggin {
             int countStiker = duck.findElements(By.cssSelector("div.sticker")).size();
             if (countStiker != 1) {throw new AssertionError();
             }
-        }// можно как-то вызвать sout? что бы понять в правильную ли утку я захожу, мне пока не очевидно(
+            //System.out.print(duck.getText());
+        }
         outSession();
     }
 }
