@@ -1,8 +1,9 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Loggin {
+public class TestBase {
 
     public WebDriver driver;
 
@@ -24,4 +25,8 @@ public class Loggin {
         driver.quit();
         driver = null;
     }
+    boolean isElementPresent(WebDriver driver, By locator) {
+            return driver.findElements(locator).size() > 0;
+        }
+
 }

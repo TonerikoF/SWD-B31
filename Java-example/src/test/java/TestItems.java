@@ -3,7 +3,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import java.util.List;
 
-public class TestItems extends Loggin {
+public class TestItems extends TestBase {
     @Test
     public void items() {
         loginSite();

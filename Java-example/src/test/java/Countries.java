@@ -1,0 +1,56 @@
+import dev.failsafe.internal.util.Assert;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
+
+public class Countries extends TestBase {
+    @Test
+    public void countries() {
+        loginAdmin();
+        driver.findElement(By.cssSelector("[href*='countries']")).click();
+        List<WebElement> countries = driver.findElements(By.cssSelector(".row :nth-child(5) a"));
+
+
+        for (int i = 0; i <= countries.size() - 2; i++) {
+            String compareCountries = countries.get(i).getText();
+            String compareCountries2 = countries.get(i + 1).getText();
+
+            //System.out.print(compareCountries);
+            //System.out.print(compareCountries2);
+            //System.out.println();
+            //if (i < countries.size()) {
+            //Assertions.assertTrue(compareCountries.compareTo(compareCountries2) < 0);
+            //}
+            List<WebElement> zones = driver.findElements(By.cssSelector(".row td:nth-child(6)"));
+            //for (int j = 0; j < zones.size() - 1; j++) {
+                //System.out.println(zones.get(j).getText());
+                int zonesCheker = Integer.parseInt(zones.get(i).getText());
+                if (zonesCheker > 0) {
+                    countries.get(i).click();
+                    //zones.get(j).click();
+                    List<WebElement> includingCountries = driver.findElements(By.cssSelector((".dataTable td:nth-child(3)")));
+                    for (int j = 0; j < includingCountries.size()-1; j++) {
+                        String compareIncludCountries = includingCountries.get(i).getText();
+                        String compareIncludCountries2 = includingCountries.get(i + 1).getText();
+
+                        System.out.print(compareIncludCountries);
+                        System.out.print(compareIncludCountries2);
+                        System.out.println();
+                        if (j <= includingCountries.size()) {
+                            Assertions.assertTrue(compareIncludCountries.compareTo(compareIncludCountries2) < 0);
+                        } else {
+                            //driver.back();
+                        }
+
+                    }
+
+                }
+            }
+            outSession();
+        }
+    }
+
+
