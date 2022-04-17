@@ -2,6 +2,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.Color;
 
 public class TestBase {
 
@@ -28,5 +29,4 @@ public class TestBase {
     boolean isElementPresent(WebDriver driver, By locator) {
             return driver.findElements(locator).size() > 0;
         }
-
 }
