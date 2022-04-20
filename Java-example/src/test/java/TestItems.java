@@ -6,7 +6,7 @@ import java.util.List;
 public class TestItems extends TestBase {
     @Test
     public void items() {
-        loginSite();
+        openSite();
 
         List<WebElement> serchItem = driver.findElements(By.cssSelector(".product"));
         for (int i = 0; i < serchItem.size(); i++) {
@@ -14,13 +14,8 @@ public class TestItems extends TestBase {
             int countStiker = duck.findElements(By.cssSelector("div.sticker")).size();
             if (countStiker != 1) {throw new AssertionError();
             }
-            /*System.out.print(duck.getText());
-        for (WebElement try2:serchItem) {
-            System.out.print(try2.getText());*/
-            
         }outSession();
     }
-
 }
 
 

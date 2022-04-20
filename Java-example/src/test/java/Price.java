@@ -2,7 +2,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.Color;
 
 
 //а) на главной странице и на странице товара совпадает текст названия товара
@@ -16,7 +15,7 @@ public class Price extends TestBase {
 
     @Test
     public void price(){
-        loginSite();
+        openSite();
         WebElement generalItemRegularPrice = driver.findElement(By.cssSelector("#box-campaigns .regular-price"));
         String generalItemsName = driver.findElement(By.cssSelector("#box-campaigns .name")).getText();
         String compareGeneralItemRegularPrice = driver.findElement(By.cssSelector("#box-campaigns .regular-price")).getText();

@@ -3,6 +3,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.Color;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TestBase {
 
@@ -16,7 +17,7 @@ public class TestBase {
         driver.findElement(By.name("password")).sendKeys("admin");
         driver.findElement(By.name("login")).click();
     }
-    public void loginSite() {
+    public void openSite() {
         driver = new ChromeDriver();
 
         driver.get("http://localhost/litecart");
@@ -26,7 +27,8 @@ public class TestBase {
         driver.quit();
         driver = null;
     }
+
     boolean isElementPresent(WebDriver driver, By locator) {
-            return driver.findElements(locator).size() > 0;
-        }
+        return driver.findElements(locator).size() > 0;
+    }
 }
