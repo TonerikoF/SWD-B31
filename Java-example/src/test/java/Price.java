@@ -32,7 +32,7 @@ public class Price extends TestBase {
         //проверка красного
         ColorMake generalItemSalePriceColor = new ColorMake(generalItemSalePrice.getCssValue(("color")));
         Assertions.assertTrue(generalItemSalePriceColor.ColorBlue == 0
-                && generalItemSalePriceColor.ColorBlue == 0);
+                && generalItemSalePriceColor.ColorGreen == 0);
         // проверка "жирный" шрифт - не понимаю как в стронг найти bold, поэтому ищу в принципе по strong
         String textBold = generalItemSalePrice.getTagName();
         Assertions.assertTrue(textBold.contains("strong"));
@@ -59,7 +59,7 @@ public class Price extends TestBase {
         //проверка красного
         ColorMake pageItemsItemSalePriceColor = new ColorMake(pageItemsItemSalePrice.getCssValue(("color")));
         Assertions.assertTrue(pageItemsItemSalePriceColor.ColorBlue == 0
-                && pageItemsItemSalePriceColor.ColorBlue == 0);
+                && pageItemsItemSalePriceColor.ColorGreen == 0);
         // проверка "жирный" шрифт - не понимаю как в стронг найти bold, поэтому ищу в принципе по strong
         String pageTextBold = pageItemsItemSalePrice.getTagName();
         Assertions.assertTrue(pageTextBold.contains("strong"));
