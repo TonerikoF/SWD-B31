@@ -4,6 +4,9 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.Select;
 
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -32,7 +35,8 @@ public class AddNewProduct extends TestBase {
         driver.findElement(By.name("code")).sendKeys("2313213");
         driver.findElement(By.cssSelector("[value='1-3']")).click();
         driver.findElement(By.name("quantity")).sendKeys(Keys.RIGHT+"12");
-        driver.findElement(By.name("new_images[]")).sendKeys("/src/img/Doc-Brown-Back-to-the-Future-TUBBZ.jpg");
+        File file = new File("src/img/Doc-Brown-Back-to-the-Future-TUBBZ.jpg");
+        driver.findElement(By.name("new_images[]")).sendKeys(file.getAbsolutePath());
 
         LocalDate localDate = LocalDate.now();
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd.MM.YYYY");
