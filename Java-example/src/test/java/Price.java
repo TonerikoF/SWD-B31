@@ -36,10 +36,8 @@ public class Price extends TestBase {
         String textBold = generalItemSalePrice.getTagName();
         Assertions.assertTrue(textBold.contains("strong"));
         //проверка что скидочный ценник больше базового прайса
-        System.out.println(Double.valueOf(generalItemRegularPrice.getCssValue("font-size").substring(0,2)));
-        System.out.println(Double.valueOf(generalItemRegularPrice.getCssValue("font-size").substring(0,2 )));
-        Assertions.assertTrue(Double.valueOf(generalItemRegularPrice.getCssValue("font-size").substring(0,2))
-                < Double.valueOf(generalItemSalePrice.getCssValue("font-size").substring(0,2)));
+        Assertions.assertTrue(Double.valueOf(generalItemRegularPrice.getCssValue("font-size").replace("px",""))
+                < Double.valueOf(generalItemSalePrice.getCssValue("font-size").replace("px","")));
         // переход на страницу товара
         driver.findElement(By.cssSelector("#box-campaigns a:first-child")).click();
         String pageItemsName = driver.findElement(By.cssSelector("h1")).getText();
@@ -65,7 +63,7 @@ public class Price extends TestBase {
         String pageTextBold = pageItemsItemSalePrice.getTagName();
         Assertions.assertTrue(pageTextBold.contains("strong"));
         //проверка что скидочный ценник больше базового прайса
-        Assertions.assertTrue(Double.valueOf(pageItemsRegularPrice.getCssValue("font-size").substring(0,2 ))
-                < Double.valueOf(pageItemsItemSalePrice.getCssValue("font-size").substring(0,2 )));
+        Assertions.assertTrue(Double.valueOf(pageItemsRegularPrice.getCssValue("font-size").replace("px",""))
+                < Double.valueOf(pageItemsItemSalePrice.getCssValue("font-size").replace("px","")));
     }
 }
