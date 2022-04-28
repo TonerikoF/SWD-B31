@@ -1,9 +1,12 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.Set;
 
 public class TestBase {
 
@@ -37,7 +40,17 @@ public class TestBase {
         return driver.findElements(locator).size() > 0;
     }
     public void back () {
+
         driver.navigate().back();
     }
+    public ExpectedCondition<String> otherWindow (Set<String> oldWindows){
+        return new ExpectedCondition<String>(){
+            public String apply(WebDriver driver) {
+                Set<String> handles =driver.getWindowHandles();
+                handles.removeAll(oldWindows);
+                return handles.size()>0 ? handles.iterator().next():null;
+            }
+        };
 
+    }
 }
